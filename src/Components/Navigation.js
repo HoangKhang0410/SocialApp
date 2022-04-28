@@ -7,11 +7,13 @@ import HomeScreen from '../Screens/HomeScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
 import LikeScreen from '../Screens/LikeScreen';
 import SearchScreen from '../Screens/SearchScreen';
+import NewPostScreen from '../Screens/NewPostScreen';
 
 const homeName = 'Home';
 const searchName = 'Search';
 const likeName = 'Like';
 const profileName = 'Profile';
+const newPostName = 'NewPost';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,6 +34,8 @@ function Navigation() {
                             iconName = focused ? 'heart' : 'heart-outline';
                         } else if (routeName === profileName) {
                             iconName = focused ? 'person' : 'person-outline';
+                        } else if (routeName === newPostName) {
+                            iconName = focused ? 'add-circle-sharp' : 'add-circle-outline';
                         }
                         return <Ionicons name={iconName} size={size} color={color} />;
                     },
@@ -45,6 +49,7 @@ function Navigation() {
             >
                 <Tab.Screen name={homeName} component={HomeScreen} options={{ headerShown: false }} />
                 <Tab.Screen name={searchName} component={SearchScreen} options={{ headerShown: false }} />
+                <Tab.Screen name={newPostName} component={NewPostScreen} options={{ headerShown: false }} />
                 <Tab.Screen name={likeName} component={LikeScreen} options={{ headerShown: false }} />
                 <Tab.Screen name={profileName} component={ProfileScreen} options={{ headerShown: false }} />
             </Tab.Navigator>
